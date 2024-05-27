@@ -31,11 +31,7 @@ export const Header = () => {
             <MobileNav />
           </SignedIn>
           <SignedOut>
-            <Button
-              asChild
-              className="rounded-md bg-blue-700 hover:bg-blue-800 transition-colors"
-              size="lg"
-            >
+            <Button asChild className="rounded-md " size="lg">
               <Link href="/sign-in">Login</Link>
             </Button>
           </SignedOut>

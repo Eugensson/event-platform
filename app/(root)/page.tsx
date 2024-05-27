@@ -16,11 +16,7 @@ export default function Home() {
               Book and learn helpful tips from 3,168+ mentors in world-class
               companies with our global community.
             </p>
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-fit rounded-md bg-blue-700 hover:bg-blue-800 transition-colors"
-            >
+            <Button asChild size="lg" className="w-full sm:w-fit h-[54px]">
               <Link href="#events">Explore Now</Link>
             </Button>
           </div>

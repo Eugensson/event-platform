@@ -159,7 +159,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                   <Textarea
                     placeholder="Description"
                     {...field}
-                    className="textarea rounded-2xl"
+                    className="bg-gray-100 flex flex-1 placeholder:text-gray-500 px-5 py-3 border-none focus-visible:ring-transparent rounded-md"
                   />
                 </FormControl>
                 <FormMessage />

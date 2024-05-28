@@ -2,12 +2,6 @@
 
 import { revalidatePath } from "next/cache";
 
-import { connectToDatabase } from "@/lib/database";
-import Event from "@/lib/database/models/event.model";
-import User from "@/lib/database/models/user.model";
-import Category from "@/lib/database/models/category.model";
-import { handleError } from "@/lib/utils";
-
 import {
   CreateEventParams,
   UpdateEventParams,
@@ -16,6 +10,11 @@ import {
   GetEventsByUserParams,
   GetRelatedEventsByCategoryParams,
 } from "@/types";
+import { handleError } from "@/lib/utils";
+import { connectToDatabase } from "@/lib/database";
+import User from "@/lib/database/models/user.model";
+import Event from "@/lib/database/models/event.model";
+import Category from "@/lib/database/models/category.model";
 
 const getCategoryByName = async (name: string) => {
   return Category.findOne({ name: { $regex: name, $options: "i" } });
@@ -31,7 +30,6 @@ const populateEvent = (query: any) => {
     .populate({ path: "category", model: Category, select: "_id name" });
 };
 
-// CREATE
 export async function createEvent({ userId, event, path }: CreateEventParams) {
   try {
     await connectToDatabase();
@@ -52,7 +50,6 @@ export async function createEvent({ userId, event, path }: CreateEventParams) {
   }
 }
 
-// GET ONE EVENT BY ID
 export async function getEventById(eventId: string) {
   try {
     await connectToDatabase();
@@ -67,7 +64,6 @@ export async function getEventById(eventId: string) {
   }
 }
 
-// UPDATE
 export async function updateEvent({ userId, event, path }: UpdateEventParams) {
   try {
     await connectToDatabase();
@@ -90,7 +86,6 @@ export async function updateEvent({ userId, event, path }: UpdateEventParams) {
   }
 }
 
-// DELETE
 export async function deleteEvent({ eventId, path }: DeleteEventParams) {
   try {
     await connectToDatabase();
@@ -102,7 +97,6 @@ export async function deleteEvent({ eventId, path }: DeleteEventParams) {
   }
 }
 
-// GET ALL EVENTS
 export async function getAllEvents({
   query,
   limit = 6,
@@ -115,9 +109,11 @@ export async function getAllEvents({
     const titleCondition = query
       ? { title: { $regex: query, $options: "i" } }
       : {};
+
     const categoryCondition = category
       ? await getCategoryByName(category)
       : null;
+
     const conditions = {
       $and: [
         titleCondition,
@@ -126,12 +122,14 @@ export async function getAllEvents({
     };
 
     const skipAmount = (Number(page) - 1) * limit;
+
     const eventsQuery = Event.find(conditions)
       .sort({ createdAt: "desc" })
       .skip(skipAmount)
       .limit(limit);
 
     const events = await populateEvent(eventsQuery);
+
     const eventsCount = await Event.countDocuments(conditions);
 
     return {
@@ -143,7 +141,6 @@ export async function getAllEvents({
   }
 }
 
-// GET EVENTS BY ORGANIZER
 export async function getEventsByUser({
   userId,
   limit = 6,
@@ -172,7 +169,6 @@ export async function getEventsByUser({
   }
 }
 
-// GET RELATED EVENTS: EVENTS WITH SAME CATEGORY
 export async function getRelatedEventsByCategory({
   categoryId,
   eventId,

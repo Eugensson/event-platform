@@ -15,7 +15,9 @@ export const NavItems = () => {
         return (
           <li
             key={label}
-            className={`${isActive && "text-blue-700"} whitespace-nowrap`}
+            className={`${
+              isActive && "text-blue-700"
+            } flex items-center justify-center text-[16px] font-medium leading-[24px] whitespace-nowrap`}
           >
             <Link href={route}>{label}</Link>
           </li>

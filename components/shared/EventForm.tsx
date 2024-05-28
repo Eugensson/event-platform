@@ -39,6 +39,7 @@ type EventFormProps = {
 
 export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
+
   const initialValues =
     event && type === "Update"
       ? {
@@ -47,6 +48,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           endDateTime: new Date(event.endDateTime),
         }
       : eventDefaultValues;
+
   const router = useRouter();
 
   const { startUpload } = useUploadThing("imageUploader");
@@ -292,7 +294,7 @@ export const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                                 onCheckedChange={field.onChange}
                                 checked={field.value}
                                 id="isFree"
-                                className="mr-2 h-5 w-5 border-2 border-primary-500"
+                                className="mr-2 h-5 w-5 border-2"
                               />
                             </div>
                           </FormControl>

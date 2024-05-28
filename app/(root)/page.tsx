@@ -1,9 +1,25 @@
 import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-export default function Home() {
+import { SearchParamProps } from "@/types";
+import { Button } from "@/components/ui/button";
+import { Search } from "@/components/shared/Search";
+import { getAllEvents } from "@/lib/actions/event.actions";
+import { Collection } from "@/components/shared/Collection";
+import { CategoryFilter } from "@/components/shared/CategoryFilter";
+
+export default async function Home({ searchParams }: SearchParamProps) {
+  const page = Number(searchParams?.page) || 1;
+  const searchText = (searchParams?.query as string) || "";
+  const category = (searchParams?.category as string) || "";
+
+  const events = await getAllEvents({
+    query: searchText,
+    category,
+    page,
+    limit: 6,
+  });
+
   return (
     <>
       <section className="py-5 md:py-10">
@@ -37,9 +53,18 @@ export default function Home() {
           Trust by <br /> Thousands of Events
         </h2>
         <div className="w-full flex flex-col md:flex-row gap-5">
-          <p>Search</p>
-          <p>CategoryFilter</p>
+          <Search />
+          <CategoryFilter />
         </div>
+        <Collection
+          data={events?.data}
+          emptyTitle="No Events Found"
+          emptyStateSubtext="Come back later"
+          collectionType="All_Events"
+          limit={6}
+          page={page}
+          totalPages={events?.totalPages}
+        />
       </section>
     </>
   );

@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Caveat", cursive;
+
+  --color-primary: #0f1017;
+  --color-secondary: #1b1c23;
+  --color-secondary-hover: #1f212d;
+  --color-tertiary: #26272e;
+  --color-tertiary-hover: #24252c;
+  --color-accent: #e14817;
+  --color-accent-hover: #cb4419;
+  --color-grey: #737373;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1310px;
+
+  --background-image-pattern: url("/assets/pattern_bg.png");
+  --background-image-hero_bg1: url("/assets/hero/hero-bg1.png");
+  --background-image-hero_bg2: url("/assets/hero/hero-bg2.png");
+}
+
+body {
+  @apply bg-primary text-white font-primary;
+}
+
+.container {
+  @apply px-3.75 w-full max-w-327.5 mx-auto;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  @apply font-primary;
+}
+
+.h1 {
+  @apply text-4xl xl:text-[70px] font-bold xl:leading-[78px] uppercase;
+}
+
+.h2 {
+  @apply text-3xl xl:text-[44px] font-semibold leading-[120%];
+}
+
+.h3 {
+  @apply text-[32px] font-medium leading-[110%];
+}
+
+.h4 {
+  @apply text-lg;
+}
+
+.pretitle {
+  @apply text-4xl xl:text-[46px] font-secondary leading-[110%] text-accent;
+}
+
+.btn {
+  @apply h-12 min-w-28 flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-300 cursor-pointer;
+}
+
+.btn-accent {
+  @apply bg-accent hover:bg-accent-hover;
+}
+
+.btn-secondary {
+  @apply bg-secondary hover:bg-secondary-hover;
+}
+
+.btn-tertiary {
+  @apply bg-tertiary hover:bg-tertiary-hover;
+}

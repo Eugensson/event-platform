@@ -1,23 +1,27 @@
-import { IconType } from "react-icons";
+export type SeatType = "frontseat" | "backseat" | "vip";
+
+export type EventType = "music" | "art" | "food" | "sport";
 
 export type Seat = {
-  seat: "frontseat" | "backseat" | "vip";
+  seat: SeatType;
   price: number;
+};
+
+export type Social = {
+  icon: string;
+  path: string;
 };
 
 export type Organizer = {
   img_avatar: string;
   name: string;
   job: string;
-  social: {
-    icon: IconType;
-    path: string;
-  }[];
+  social: Social[];
 };
 
 export type Event = {
   id: string;
-  type: "music" | "art" | "food" | "sport";
+  type: EventType;
   img_sm: string;
   img_lg: string;
   date: string;
@@ -28,4 +32,13 @@ export type Event = {
   seats: Seat[];
   organizers: Organizer[];
   recommended: boolean;
+};
+
+export type TicketData = {
+  eventId: string;
+  eventName: string;
+  ticketType: SeatType;
+  ticketPrice: number;
+  amount: number;
+  totalPrice: number;
 };

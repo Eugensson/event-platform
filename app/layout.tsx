@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Poppins, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { EventProvider } from "@/components/event-context";
+import { TicketProvider } from "@/components/ticket-context";
+
 import "./globals.css";
 
 const caveat = Caveat({
@@ -31,11 +36,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${caveat.variable} ${poppins.variable} antialiased`}>
-        {children}
-        <Analytics />
-      </body>
-    </html>
+    <EventProvider>
+      <TicketProvider>
+        <html lang="en">
+          <body
+            className={`${caveat.variable} ${poppins.variable} antialiased`}
+          >
+            <Header />
+            {children}
+            <Footer />
+            <Analytics />
+          </body>
+        </html>
+      </TicketProvider>
+    </EventProvider>
   );
 }

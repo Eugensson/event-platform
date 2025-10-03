@@ -20,8 +20,8 @@
   --breakpoint-xl: 1310px;
 
   --background-image-pattern: url("/assets/pattern_bg.png");
-  --background-image-hero_bg1: url("/assets/hero/hero-bg1.png");
-  --background-image-hero_bg2: url("/assets/hero/hero-bg2.png");
+  --background-image-hero_1: url("/assets/hero/hero-bg1.png");
+  --background-image-hero_2: url("/assets/hero/hero-bg2.png");
 }
 
 body {
@@ -75,4 +75,9 @@ body {
 
 .btn-tertiary {
   @apply bg-tertiary hover:bg-tertiary-hover;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  @apply bg-accent;
 }

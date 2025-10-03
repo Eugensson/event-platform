@@ -943,7 +943,8 @@
       "date": "2026-03-05",
       "hour": "17:00",
       "title": "Football World Cup Qualifiers",
-      "location": "Experience the excitement of the Football World Cup Qualifiers at Wembley Stadium, London, where top international teams compete for a spot in the world’s most prestigious tournament. Fans will witness thrilling matches, spectacular goals, and intense rivalries, all set in an iconic stadium with passionate crowds. The event offers a lively atmosphere with fan zones, entertainment, and food options, creating an unforgettable experience for football enthusiasts of all ages. Perfect for die-hard supporters and casual fans alike, this tournament celebrates the spirit of international football and the thrill of competition on a global stage.",
+      "location": "Wembley Stadium, London",
+      "description": "Experience the excitement of the Football World Cup Qualifiers at Wembley Stadium, London, where top international teams compete for a spot in the world’s most prestigious tournament. Fans will witness thrilling matches, spectacular goals, and intense rivalries, all set in an iconic stadium with passionate crowds. The event offers a lively atmosphere with fan zones, entertainment, and food options, creating an unforgettable experience for football enthusiasts of all ages. Perfect for die-hard supporters and casual fans alike, this tournament celebrates the spirit of international football and the thrill of competition on a global stage.",
       "seats": [
         {
           "seat": "frontseat",

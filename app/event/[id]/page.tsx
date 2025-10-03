@@ -60,25 +60,29 @@ const EventDetailsPage = async ({ params }: EventDetailsPageProps) => {
                   <li className="flex items-center gap-3">
                     <FaRegCircleCheck size={20} className="text-accent" />
                     <p className="text-grey">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Attendees must present a valid ticket at the entrance for
+                      verification.
                     </p>
                   </li>
                   <li className="flex items-center gap-3">
                     <FaRegCircleCheck size={20} className="text-accent" />
                     <p className="text-grey">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      All participants are required to follow safety guidelines
+                      during the event.
                     </p>
                   </li>
                   <li className="flex items-center gap-3">
                     <FaRegCircleCheck size={20} className="text-accent" />
                     <p className="text-grey">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Entry is permitted only for registered guests or those on
+                      the guest list.
                     </p>
                   </li>
                   <li className="flex items-center gap-3">
                     <FaRegCircleCheck size={20} className="text-accent" />
                     <p className="text-grey">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Photography and recording are allowed only with prior
+                      permission from organizers.
                     </p>
                   </li>
                 </ul>
